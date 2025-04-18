@@ -6,7 +6,7 @@ This project is a Flask-based web application that fetches the **latest YouTube 
 
 ## Files Descriptions
 
-# `app.py`
+**app.py**
 
 This is the **main file**. When you run this, it:
 - Starts the Flask web server
@@ -14,7 +14,7 @@ This is the **main file**. When you run this, it:
 
 *****************************************************************************************************
 
-# `config.py`
+**`config.py`**
 
 This file holds your **configuration settings**, such as:
 - Your YouTube API key
