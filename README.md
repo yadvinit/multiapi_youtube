@@ -25,8 +25,9 @@ This file holds your **configuration settings**, such as:
 
 **.env**
 
-This is a hidden file where you put **sensitive info**, like your YouTube API key and Mongo Uri. Example:
-like=> YOUTUBE_API_KEY = asdfg,asdf,asdf
+This is a hidden file where you put **sensitive info**, like your YouTube API key and Mongo Uri.
+-Example:YOUTUBE_API_KEY = asdfg,asdf,asdf
+
 
 *****************************************************************************************************
 
