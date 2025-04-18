@@ -1,6 +1,4 @@
-# Multiapi Model
-
-# Youtube Videos Fetcher API
+# Multi API Youtube Videos Fetcher Model
 
 This project is a Flask-based web application that fetches the **latest YouTube videos** based on a predefined search query/tag and stores them in a mongodb database. The server continuously polls the YouTube Data API at regular intervals (every 10 seconds), stores the video metadata, and provides a **paginated REST API** to access this data in reverse chronological order (latest first).
 
