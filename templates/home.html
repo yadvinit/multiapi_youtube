@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .video-card {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        .pagination {
+            margin-top: 20px;
+        }
+        .pagination a {
+            padding: 5px 10px;
+            margin-right: 5px;
+            text-decoration: none;
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fetch Video</h1>
+    
+    <form action="/" method="GET">
+        <input type="text" name="q" value="{{ query }}" placeholder="Search...">
+        <button type="submit">Search</button>
+    </form>
+     
+    <div style="color:red">{{ error }}</div>
+    
+    <h2>Results for: "{{ query }}" ({{ videos|length }} videos)</h2>
+    
+    <div class="video-card">
+        <a href="https://www.youtube.com/watch?v={{ video.videoId }}" target="_blank">
+            <img src="{{ video.thumbnails.medium.url if video.thumbnails and video.thumbnails.medium else video.thumbnail }}" alt="{{ video.title }}" width="120">
+            <h3>{{ video.title }}</h3>
+        </a>
+        <div>
+            {{ video.channel if video.channel else video.channelTitle }} - {{ video.publishedAt }}
+        </div>
+    </div>
+   
+    <p>No videos found.</p>
+
+    <div class="pagination">
+        <a href="/?q={{ query }}&page={{ prev_page }}">Previous</a>
+        <span>Page {{ page }}</span>
+        <a href="/?q={{ query }}&page={{ next_page }}">Next</a>
+    </div>
+</body>
+</html>
