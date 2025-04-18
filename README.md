@@ -14,7 +14,7 @@ This is the **main file**. When you run this, it:
 
 *****************************************************************************************************
 
-**`config.py`**
+**config.py**
 
 This file holds your **configuration settings**, such as:
 - Your YouTube API key
@@ -23,14 +23,14 @@ This file holds your **configuration settings**, such as:
 
 *****************************************************************************************************
 
-# `.env`
+**.env**
 
 This is a hidden file where you put **sensitive info**, like your YouTube API key and Mongo Uri. Example:
 like=> YOUTUBE_API_KEY = asdfg,asdf,asdf
 
 *****************************************************************************************************
 
-# `services/youtube_service.py`
+**services/youtube_service.py**
 
 - Calls the YouTube Data API
 - Extracts useful info like title, description, published date, thumbnails, etc.
@@ -39,7 +39,7 @@ like=> YOUTUBE_API_KEY = asdfg,asdf,asdf
 
 *****************************************************************************************************
 
-# `routes/main_routes.py`
+**routes/main_routes.py**
 
 -Creates a GET API route: /videos
 -Allows the user to pass page and limit as query parameters to control pagination
@@ -49,13 +49,13 @@ like=> YOUTUBE_API_KEY = asdfg,asdf,asdf
 
 *****************************************************************************************************
 
-# `templates/home.html`
+**templates/home.html**
 
 This is just a basic HTML file, if you want to show a simple homepage or message. It’s optional and not necessary for API use.
 
 *****************************************************************************************************
 
-# `requirements.txt`
+**requirements.txt**
 
 This file lists all the Python packages your app needs. You can install them using:
 
