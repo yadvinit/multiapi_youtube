@@ -41,11 +41,11 @@ like=> YOUTUBE_API_KEY = asdfg,asdf,asdf
 
 **routes/main_routes.py**
 
--Creates a GET API route: /videos
--Allows the user to pass page and limit as query parameters to control pagination
--Fetches videos from the database
--Sorts them by published date in descending order (newest first)
--Returns the result in JSON format
+- Creates a GET API route: /videos
+- Accepts query parameters: page and limit
+- Fetches video data from the database
+- Sorts videos by published date in descending order (newest first)
+- Returns the result as a JSON response
 
 *****************************************************************************************************
 
