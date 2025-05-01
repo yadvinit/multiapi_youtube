@@ -34,27 +34,38 @@
         <input type="text" name="q" value="{{ query }}" placeholder="Search...">
         <button type="submit">Search</button>
     </form>
-     
-    <div style="color:red">{{ error }}</div>
-    
-    <h2>Results for: "{{ query }}" ({{ videos|length }} videos)</h2>
-    
-    <div class="video-card">
-        <a href="https://www.youtube.com/watch?v={{ video.videoId }}" target="_blank">
-            <img src="{{ video.thumbnails.medium.url if video.thumbnails and video.thumbnails.medium else video.thumbnail }}" alt="{{ video.title }}" width="120">
-            <h3>{{ video.title }}</h3>
-        </a>
-        <div>
-            {{ video.channel if video.channel else video.channelTitle }} - {{ video.publishedAt }}
-        </div>
-    </div>
-   
-    <p>No videos found.</p>
 
-    <div class="pagination">
-        <a href="/?q={{ query }}&page={{ prev_page }}">Previous</a>
-        <span>Page {{ page }}</span>
-        <a href="/?q={{ query }}&page={{ next_page }}">Next</a>
-    </div>
+    {% if error %}
+        <div style="color:red">{{ error }}</div>
+    {% endif %}
+
+    {% if videos %}
+        <h2>Results for: "{{ query }}" ({{ videos|length }} videos)</h2>
+
+        {% for video in videos %}
+        <div class="video-card">
+            <a href="https://www.youtube.com/watch?v={{ video.videoId }}" target="_blank">
+                <img src="{{ video.thumbnails.medium.url if video.thumbnails and video.thumbnails.medium else video.thumbnail }}" 
+                     alt="{{ video.title }}" width="120">
+                <h3>{{ video.title }}</h3>
+            </a>
+            <div>
+                {{ video.channel if video.channel else video.channelTitle }} - {{ video.publishedAt }}
+            </div>
+        </div>
+        {% endfor %}
+
+        <div class="pagination">
+            {% if prev_page %}
+                <a href="/?q={{ query }}&page={{ prev_page }}">Previous</a>
+            {% endif %}
+            <span>Page {{ page }}</span>
+            {% if next_page %}
+                <a href="/?q={{ query }}&page={{ next_page }}">Next</a>
+            {% endif %}
+        </div>
+    {% else %}
+        <p>No videos found.</p>
+    {% endif %}
 </body>
 </html>
